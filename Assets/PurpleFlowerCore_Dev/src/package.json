@@ -1,0 +1,18 @@
+{
+  "name": "com.pditine.purpleflowercore",
+  "version": "0.3.1",
+  "displayName": "PurpleFlowerCore",
+  "unity": "2019.1",
+  "description": "程序开发框架，提供多种开发可能用到的定制化功能或编辑器工具",
+  "keywords": [
+    "程序框架",
+    "framework",
+    "data config",
+    "数据配置"
+  ],
+  "author": {
+    "name": "Pditine",
+    "email": "hanfe666@outlook.com",
+    "url": "purpleditine.top"
+  }
+}
