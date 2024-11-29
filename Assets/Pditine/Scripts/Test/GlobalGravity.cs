@@ -27,6 +27,6 @@ namespace Pditine.Scripts.Test
             });
         }
 
-        public (bool, float) GetGravityInfo() => (isLeft, gravity);
+        public (bool, float) GetGravityInfo(Balance _) => (isLeft, gravity);
     }
 }

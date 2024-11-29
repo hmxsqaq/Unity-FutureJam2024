@@ -16,6 +16,6 @@ namespace Pditine.Scripts.GamePlay
         /// 获得重力信息
         /// </summary>
         /// <returns>isLeft, gravity</returns>
-        public (bool, float) GetGravityInfo();
+        public (bool, float) GetGravityInfo(Balance balance);
     }
 }

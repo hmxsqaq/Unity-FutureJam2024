@@ -8,6 +8,8 @@
 using System.Collections.Generic;
 using PurpleFlowerCore.Utility;
 using UnityEngine;
+using System.Linq;
+using PurpleFlowerCore;
 
 namespace Pditine.Scripts.GamePlay
 {
@@ -17,8 +19,9 @@ namespace Pditine.Scripts.GamePlay
         [SerializeField] private float balanceCoeff;
         [SerializeField] private float airResistance;
         private readonly HashSet<IHasGravity> _objects = new();
-        private float _gravity; // 左正右负
-        private float _gravityAdd;
+        private readonly Dictionary<IHasGravity, float> _removeBuffer = new();
+        private float _force; // 左正右负
+        private float _forceAdd;
         private float _speed;
         private float _angle; // -90~90
         
@@ -27,9 +30,10 @@ namespace Pditine.Scripts.GamePlay
             set => _angle = Mathf.Clamp(value, -90, 90);
             get => _angle;
         }
-        public void LateUpdate()
+        public void Update()
         {
-            UpdateGravity();
+            UpdateRemoveBuffer();
+            UpdateForce();
             UpdateSpeed();
             UpdateAngle();
             ApplyAngle();
@@ -41,11 +45,13 @@ namespace Pditine.Scripts.GamePlay
         public void AddObject(IHasGravity obj)
         {
             _objects.Add(obj);
+            if(_removeBuffer.ContainsKey(obj))
+                _removeBuffer.Remove(obj);
         }
         
         public void RemoveObject(IHasGravity obj)
         {
-            _objects.Remove(obj);
+            _removeBuffer[obj] = 0.1f;
         }
         
         /// <summary>
@@ -56,11 +62,40 @@ namespace Pditine.Scripts.GamePlay
             force*= 50;
             if (isLeft)
             {
-                _gravityAdd += force;
+                _forceAdd += force;
             }
             else
             {
-                _gravityAdd -= force;
+                _forceAdd -= force;
+            }
+        }
+        
+        private void UpdateRemoveBuffer()
+        {
+            var keysToRemove = new List<IHasGravity>();
+            var keysToUpdate = new List<IHasGravity>();
+            
+            foreach (var kv in _removeBuffer)
+            {
+                if (kv.Value < 0)
+                {
+                    keysToRemove.Add(kv.Key);
+                }
+                else
+                {
+                    keysToUpdate.Add(kv.Key);
+                }
+            }
+
+            foreach (var key in keysToUpdate)
+            {
+                _removeBuffer[key] -= Time.deltaTime;
+            }
+
+            foreach (var key in keysToRemove)
+            {
+                _objects.Remove(key);
+                _removeBuffer.Remove(key);
             }
         }
         
@@ -68,20 +103,20 @@ namespace Pditine.Scripts.GamePlay
         /// 1.更新重力，核心思想是天平内部不关心物体的重力如何计算，而是由外部提供
         /// 预期的重力提供者包括但不限于：天平上的物体，环境, 拖拽
         /// </summary>
-        private void UpdateGravity()
+        private void UpdateForce()
         {
-            _gravity = _gravityAdd;
-            _gravityAdd = 0;
+            _force = _forceAdd;
+            _forceAdd = 0;
             foreach (var obj in _objects)
             {
-                var (isLeft, gravity) = obj.GetGravityInfo();
+                var (isLeft, force) = obj.GetGravityInfo(this);
                 if (isLeft)
                 {
-                    _gravity += gravity;
+                    _force += force;
                 }
                 else
                 {
-                    _gravity -= gravity;
+                    _force -= force;
                 }
             }
             
@@ -92,7 +127,7 @@ namespace Pditine.Scripts.GamePlay
         /// </summary>
         private void UpdateSpeed()
         {
-            var acceleration  = 50 * _gravity;
+            var acceleration  = 50 * _force;
             acceleration += -_angle * Mathf.Abs(_angle) * balanceCoeff * 0.1f;
             _speed += acceleration * Time.deltaTime;
             _speed *= 1 - airResistance * Time.deltaTime;
