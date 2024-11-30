@@ -33,11 +33,11 @@ namespace Hmxs.Scripts.Drops
                 if (drop.TryGetComponent(out Bomb bomb) && !bomb.HasExploded)
                     bomb.Trigger();
                 else
-                    Destroy(drop.gameObject);
+                    drop.DestroySelf();
             }
             _dropsInScope.Clear();
             // todo: play explosion vfx
-            Destroy(gameObject);
+            DestroySelf();
         }
     }
 }
