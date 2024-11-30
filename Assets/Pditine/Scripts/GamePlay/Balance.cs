@@ -8,8 +8,6 @@
 using System.Collections.Generic;
 using PurpleFlowerCore.Utility;
 using UnityEngine;
-using System.Linq;
-using PurpleFlowerCore;
 
 namespace Pditine.Scripts.GamePlay
 {
@@ -20,18 +18,21 @@ namespace Pditine.Scripts.GamePlay
         [SerializeField] private float airResistance;
         private readonly HashSet<IHasGravity> _objects = new();
         private readonly Dictionary<IHasGravity, float> _removeBuffer = new();
-        private float _force; // 左正右负
-        private float _forceAdd;
-        private float _speed;
-        private float _angle; // -90~90
+        [RO]private float _force; // 左正右负
+        [RO]private float _forceAdd;
+        [RO]private float _speed;
+        [RO]private float _angle; // -90~90
         
         public float Angle
         {
             set => _angle = Mathf.Clamp(value, -90, 90);
             get => _angle;
         }
+
+        public Vector2 Normal => board.transform.up;
         public void Update()
         {
+            Debug.DrawLine(board.position, board.position + (Vector3)Normal*10, Color.red);
             UpdateRemoveBuffer();
             UpdateForce();
             UpdateSpeed();
