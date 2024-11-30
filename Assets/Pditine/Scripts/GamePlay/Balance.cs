@@ -130,7 +130,14 @@ namespace Pditine.Scripts.GamePlay
                     _force -= force;
                 }
             }
-            _force = _force > 0 ? _force - balanceThreshold : _force + balanceThreshold;
+            if (Mathf.Abs(_force) < balanceThreshold)
+            {
+                _force = 0;
+            }else
+            {
+                _force = _force > 0 ? _force - balanceThreshold : _force + balanceThreshold;
+            }
+            _force *= 0.5f;
             _force = Mathf.Clamp(_force, -forceLimit, forceLimit);
             _force += _forceAdd;
             _forceAdd = 0;

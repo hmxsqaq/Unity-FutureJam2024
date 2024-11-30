@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4793749382058438078}
   - component: {fileID: 8537858184528858713}
   - component: {fileID: 1544081747076838303}
-  m_Layer: 0
-  m_Name: Dynamic Sprite
+  m_Layer: 7
+  m_Name: ObjectBase
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,9 +190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 10
-  balance: {fileID: 0}
-  collider2D: {fileID: 1544081747076838303}
-  colliders: []
 --- !u!61 &8537858184528858713
 BoxCollider2D:
   m_ObjectHideFlags: 0
