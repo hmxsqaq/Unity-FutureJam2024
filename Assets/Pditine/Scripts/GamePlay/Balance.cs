@@ -5,7 +5,6 @@
 // License: MIT
 // -------------------------------------------------
 
-using System;
 using System.Collections.Generic;
 using PurpleFlowerCore.Utility;
 using UnityEngine;
@@ -16,14 +15,15 @@ namespace Pditine.Scripts.GamePlay
     {
         [SerializeField] private Transform board;
         [SerializeField] private float balanceCoeff;
+        [SerializeField] private float balanceThreshold;
         [SerializeField] private float airResistance;
         private readonly HashSet<IHasGravity> _objects = new();
         private readonly Dictionary<IHasGravity, float> _removeBuffer = new();
         private Collider2D _theCollider;
-        [RO]private float _force; // 左正右负
-        [RO]private float _forceAdd;
-        [RO]private float _speed;
-        [RO]private float _angle; // -90~90
+        [Inspectable]private float _force; // 左正右负
+        [Inspectable]private float _forceAdd;
+        [Inspectable]private float _speed;
+        [Inspectable]private float _angle; // -90~90
 
         private void Start()
         {
@@ -45,11 +45,6 @@ namespace Pditine.Scripts.GamePlay
             UpdateSpeed();
             UpdateAngle();
             ApplyAngle();
-        }
-
-        public bool IsTouch(Collider2D collider2D)
-        {
-            return _theCollider.IsTouching(collider2D);
         }
         
         /// <summary>
@@ -140,10 +135,20 @@ namespace Pditine.Scripts.GamePlay
         /// </summary>
         private void UpdateSpeed()
         {
-            var acceleration  = 50 * _force;
-            acceleration += -_angle * Mathf.Abs(_angle) * balanceCoeff * 0.1f;
+            float acceleration;
+            if (Mathf.Abs(_force) < balanceThreshold)
+            {
+                _speed = 0;
+                acceleration = 0;
+            }
+            else
+            {
+                // _force = Mathf.Clamp(_force, -balanceThreshold, balanceThreshold);
+                acceleration = 10 * _force;
+            }
+            acceleration += -_angle * balanceCoeff * 0.1f;
             _speed += acceleration * Time.deltaTime;
-            _speed *= 1 - airResistance * Time.deltaTime;
+            _speed *= Mathf.Clamp(1 - airResistance * Time.deltaTime, 0, 1);
         }
         
         /// <summary>
