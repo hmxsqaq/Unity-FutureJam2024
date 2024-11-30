@@ -87,22 +87,6 @@ namespace Hmxs.Toolkit
         private float? _timePassedBeforePause;                          // Nullable<float>，表示暂停之前此轮计时已经持续的时间，是否为空表示暂停状态
         private float? _timePassedBeforeRemove;                         // Nullable<float>，表示移除之前此轮计时已经持续的时间，是否为空表示移除状态
 
-        // private static TimersManager _manager;
-        //
-        // private static TimersManager Manager                    // 若TimerManager为空，尝试通过场景查找获取，若依然为空则创建一个TimerManager
-        // {
-        //     get
-        //     {
-        //         if (_manager != null) return _manager;
-        //
-        //         _manager = Object.FindObjectOfType<TimersManager>();
-        //         if (_manager != null) return _manager;
-        //
-        //         _manager = new GameObject("TimerManager").AddComponent<TimersManager>();
-        //         return _manager;
-        //     }
-        // }
-
         #endregion
         
         #region Static Method（API）
@@ -129,11 +113,6 @@ namespace Hmxs.Toolkit
             string timerID = "Default Timer")
         {
             var timer = new Timer(duration, onComplete, onUpdate, isLooped, useRealTime, owner,timerID);
-            // if (Manager == null)
-            // {
-            //     Debug.Log("Can not find TimerUpdater");
-            //     return null;
-            // }
             TimerManager.Instance.Add(timer);
             return timer;
         }
