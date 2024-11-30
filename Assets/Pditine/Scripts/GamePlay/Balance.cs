@@ -5,6 +5,7 @@
 // License: MIT
 // -------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using PurpleFlowerCore.Utility;
 using UnityEngine;
@@ -18,11 +19,17 @@ namespace Pditine.Scripts.GamePlay
         [SerializeField] private float airResistance;
         private readonly HashSet<IHasGravity> _objects = new();
         private readonly Dictionary<IHasGravity, float> _removeBuffer = new();
+        private Collider2D _theCollider;
         [RO]private float _force; // 左正右负
         [RO]private float _forceAdd;
         [RO]private float _speed;
         [RO]private float _angle; // -90~90
-        
+
+        private void Start()
+        {
+            _theCollider = GetComponent<Collider2D>();
+        }
+
         public float Angle
         {
             set => _angle = Mathf.Clamp(value, -90, 90);
@@ -38,6 +45,11 @@ namespace Pditine.Scripts.GamePlay
             UpdateSpeed();
             UpdateAngle();
             ApplyAngle();
+        }
+
+        public bool IsTouch(Collider2D collider2D)
+        {
+            return _theCollider.IsTouching(collider2D);
         }
         
         /// <summary>
@@ -148,6 +160,8 @@ namespace Pditine.Scripts.GamePlay
         /// </summary>
         private void ApplyAngle()
         {
+            //非常好代码,使我的天平旋转,爱来自插值
+            //board.localEulerAngles = Vector3.Lerp(board.localEulerAngles, new Vector3(0, 0, _angle), 0.1f); 
             board.localEulerAngles = new Vector3(0, 0, _angle);
         }
     }
