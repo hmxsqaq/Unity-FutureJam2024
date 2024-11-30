@@ -6,7 +6,9 @@
 // // -------------------------------------------------
 
 using System;
+using Hmxs.Scripts;
 using PurpleFlowerCore;
+using PurpleFlowerCore.Utility;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -18,7 +20,10 @@ namespace Pditine.Scripts.GamePlay
         [SerializeField] private Balance balance;
         private Vector3 _endPos;
         [SerializeField] private Transform ctrlPoint;
-        private bool _isDragging;
+        [RO]private bool _isDragging;
+        private Vector2 StartCanvasPoint => Utility.GetCanvasPosition(transform.position) + _offsetCanvas;
+        private Vector2 _offsetWorld;
+        private Vector2 _offsetCanvas;
         private void Start()
         {
             balance.AddObject(this);
@@ -42,18 +47,22 @@ namespace Pditine.Scripts.GamePlay
         private void OnMouseDrag()
         {
             _endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            _isDragging = true;
+            Arrow.Instance.Set(ctrlPoint.position,
+                StartCanvasPoint, Utility.GetMouseCanvasPosition());
         }
 
         private void OnMouseDown()
         {
-            PFCLog.Info(123);
+            _isDragging = true;
+            Arrow.Instance.Generate(Utility.GetMouseWorldPosition());
+            _offsetCanvas = Utility.GetMouseCanvasPosition() - Utility.GetCanvasPosition(transform.position);
             ctrlPoint.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
         
         private void OnMouseUp()
         {
             _isDragging = false;
+            Arrow.Instance.Clear();
         }
     }
 }

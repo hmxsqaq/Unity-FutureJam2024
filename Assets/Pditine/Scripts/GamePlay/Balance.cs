@@ -14,15 +14,27 @@ namespace Pditine.Scripts.GamePlay
     public class Balance : MonoBehaviour
     {
         [SerializeField] private Transform board;
+        [Header("平衡系数,当天平倾斜时的回复速度")]
         [SerializeField] private float balanceCoeff;
+        [Header("平衡阈值,当重力差小于此值时认为平衡")]
+        [SerializeField] private float balanceThreshold;
+        [Header("空气阻力")]
         [SerializeField] private float airResistance;
+        [Header("最大重力差")]
+        [SerializeField] private float forceLimit;
         private readonly HashSet<IHasGravity> _objects = new();
         private readonly Dictionary<IHasGravity, float> _removeBuffer = new();
-        [RO]private float _force; // 左正右负
-        [RO]private float _forceAdd;
-        [RO]private float _speed;
-        [RO]private float _angle; // -90~90
-        
+        private Collider2D _theCollider;
+        [Inspectable]private float _force; // 左正右负
+        [Inspectable]private float _forceAdd;
+        [Inspectable]private float _speed;
+        [Inspectable]private float _angle; // -90~90
+
+        private void Start()
+        {
+            _theCollider = GetComponent<Collider2D>();
+        }
+
         public float Angle
         {
             set => _angle = Mathf.Clamp(value, -90, 90);
@@ -106,8 +118,6 @@ namespace Pditine.Scripts.GamePlay
         /// </summary>
         private void UpdateForce()
         {
-            _force = _forceAdd;
-            _forceAdd = 0;
             foreach (var obj in _objects)
             {
                 var (isLeft, force) = obj.GetGravityInfo(this);
@@ -120,7 +130,10 @@ namespace Pditine.Scripts.GamePlay
                     _force -= force;
                 }
             }
-            
+            _force = _force > 0 ? _force - balanceThreshold : _force + balanceThreshold;
+            _force = Mathf.Clamp(_force, -forceLimit, forceLimit);
+            _force += _forceAdd;
+            _forceAdd = 0;
         }
         
         /// <summary>
@@ -128,10 +141,19 @@ namespace Pditine.Scripts.GamePlay
         /// </summary>
         private void UpdateSpeed()
         {
-            var acceleration  = 50 * _force;
+            float acceleration;
+            if (Mathf.Abs(_force) < balanceThreshold)
+            {
+                _speed = 0;
+                acceleration = 0;
+            }
+            else
+            {
+                acceleration = 10 * _force;
+            }
             acceleration += -_angle * Mathf.Abs(_angle) * balanceCoeff * 0.1f;
             _speed += acceleration * Time.deltaTime;
-            _speed *= 1 - airResistance * Time.deltaTime;
+            _speed *= Mathf.Clamp(1 - airResistance * Time.deltaTime, 0, 1);
         }
         
         /// <summary>
@@ -139,7 +161,9 @@ namespace Pditine.Scripts.GamePlay
         /// </summary>
         private void UpdateAngle()
         {
-            _angle += _speed * Time.deltaTime;
+            float delta = _speed * Time.deltaTime;
+            delta = Mathf.Clamp(delta, -1,1);
+            _angle += delta;
             _angle = Mathf.Clamp(_angle, -90, 90);
         }
 
@@ -148,6 +172,8 @@ namespace Pditine.Scripts.GamePlay
         /// </summary>
         private void ApplyAngle()
         {
+            //非常好代码,使我的天平旋转,爱来自插值
+            //board.localEulerAngles = Vector3.Lerp(board.localEulerAngles, new Vector3(0, 0, _angle), 0.1f); 
             board.localEulerAngles = new Vector3(0, 0, _angle);
         }
     }
