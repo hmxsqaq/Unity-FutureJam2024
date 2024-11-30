@@ -44,5 +44,15 @@ namespace Hmxs.Scripts
             RectTransformUtility.ScreenPointToLocalPointInRectangle(MainCanvas.transform as RectTransform, MainCamera.WorldToScreenPoint(worldPosition), MainCamera, out var result);
             return result;
         }
+
+        public static Vector2 RotateVector(Vector2 originalVector, float angleInDegrees)
+        {
+            float angleInRadians = angleInDegrees * Mathf.Deg2Rad;
+            float cosTheta = Mathf.Cos(angleInRadians);
+            float sinTheta = Mathf.Sin(angleInRadians);
+            float newX = originalVector.x * cosTheta - originalVector.y * sinTheta;
+            float newY = originalVector.x * sinTheta + originalVector.y * cosTheta;
+            return new Vector2(newX, newY);
+        }
     }
 }
