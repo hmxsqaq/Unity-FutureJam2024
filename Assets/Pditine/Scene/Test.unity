@@ -1249,8 +1249,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 1462008472}
-  balanceCoeff: 40
-  airResistance: 20
+  balanceCoeff: 30
+  balanceThreshold: 20
+  airResistance: 5
+  forceLimit: 150
 --- !u!1001 &2285746041839132238
 PrefabInstance:
   m_ObjectHideFlags: 0
