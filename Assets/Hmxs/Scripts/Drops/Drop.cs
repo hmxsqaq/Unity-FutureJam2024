@@ -9,5 +9,7 @@ namespace Hmxs.Scripts.Drops
         protected Rigidbody2D Rb { get; private set; }
 
         protected virtual void Start() => Rb = GetComponent<Rigidbody2D>();
+
+        public virtual void DestroySelf() => Destroy(gameObject);
     }
 }
