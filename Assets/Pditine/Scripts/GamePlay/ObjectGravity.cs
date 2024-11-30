@@ -14,7 +14,6 @@ namespace Pditine.Scripts.Test
     public class ObjectGravity : MonoBehaviour, IHasGravity
     {
         [SerializeField] private float gravity;
-        [SerializeField] private Collider2D collider2D;
         public (bool, float) GetGravityInfo(Balance balance)
         {
             bool isLeft = balance.transform.position.x > transform.position.x;

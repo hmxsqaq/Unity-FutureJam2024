@@ -12,6 +12,10 @@ using UnityEngine;
 
 namespace Pditine.Scripts.GamePlay
 {
+    /// <summary>
+    /// 用于检测物体是否在接触天平，包括间接接触的物体,并向天平注册物体
+    /// 所有可以为天平施加重力的物体都应该有IHasGravity和ObjectGravity组件，Tag为Object
+    /// </summary>
     public class ObjectTouchingProxy : MonoBehaviour
     {
         [SerializeField]private Balance balance;
@@ -22,6 +26,9 @@ namespace Pditine.Scripts.GamePlay
         {
             CheckTouching();
         }
+        /// <summary>
+        /// 从直接接触的物体开始,检测所有接触的物体，并缓存
+        /// </summary>
         private void CheckTouching()
         {
             List<Collider2D> visitedObjects = new List<Collider2D>();
@@ -57,6 +64,7 @@ namespace Pditine.Scripts.GamePlay
                     throw new Exception("ObjectTouchingProxy: Object has no IHasGravity component");
             }
 
+            // 移除不再接触的物体
             List<Collider2D> objectsToRemove = new List<Collider2D>();
             foreach (var theObject in _objectBuffers)
             {
