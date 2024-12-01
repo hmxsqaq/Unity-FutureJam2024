@@ -1,4 +1,5 @@
 ﻿using Hmxs.Toolkit;
+using TMPro;
 using UnityEngine;
 
 namespace Hmxs.Scripts.Drops
@@ -6,16 +7,18 @@ namespace Hmxs.Scripts.Drops
     public class BombTime : Bomb
     {
         [SerializeField] private float explosionTime;
+        [SerializeField] private TextMeshProUGUI timerText;
 
         protected override void Start()
         {
             base.Start();
+            timerText.text = $"{explosionTime:00.00}";
             this.AttachTimer(
                 duration: explosionTime,
                 onComplete: Trigger,
                 onUpdate: t =>
                 {
-                    // todo: update explosion time
+                    timerText.text = $"{(explosionTime - t):00.00}";
                 });
         }
 

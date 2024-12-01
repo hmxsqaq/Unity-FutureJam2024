@@ -6,7 +6,17 @@ namespace Hmxs.Scripts.Drops
 {
     public abstract class Bomb : Drop
     {
+        [SerializeField] private GameObject explosionVfx;
+
         private readonly List<Drop> _dropsInScope = new();
+
+        protected Animator Ani;
+
+        protected override void Start()
+        {
+            base.Start();
+            Ani = GetComponent<Animator>();
+        }
 
         protected bool HasExploded { get; private set; }
 
@@ -36,7 +46,8 @@ namespace Hmxs.Scripts.Drops
                     drop.DestroySelf();
             }
             _dropsInScope.Clear();
-            // todo: play explosion vfx
+            if (explosionVfx != null)
+                Instantiate(explosionVfx, transform.position, Quaternion.identity);
             DestroySelf();
         }
     }

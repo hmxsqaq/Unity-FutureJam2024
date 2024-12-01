@@ -4768,6 +4768,7 @@ GameObject:
   - component: {fileID: 5128109125358655054}
   - component: {fileID: 6343805625094094449}
   - component: {fileID: 7427587679606969518}
+  - component: {fileID: 6101824046588940532}
   m_Layer: 0
   m_Name: Explosion Fire
   m_TagString: Untagged
@@ -4909,7 +4910,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 30
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5027,7 +5028,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5786,12 +5787,12 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0.36296296
-          inSlope: -0.73313713
-          outSlope: -0.73313713
+          inSlope: -1.0473386
+          outSlope: -1.0473386
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0.10848818
         - serializedVersion: 3
           time: 1
           value: 0.013215859
@@ -6301,8 +6302,8 @@ ParticleSystem:
     enabled: 1
     x:
       serializedVersion: 2
-      minMaxState: 2
-      scalar: 14.8000555
+      minMaxState: 0
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6354,8 +6355,8 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 2
-      scalar: 14.969778
+      minMaxState: 0
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6407,8 +6408,8 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 2
-      scalar: 19.99681
+      minMaxState: 0
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6823,7 +6824,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9578,3 +9579,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6101824046588940532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5843353816964893906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d930b0b36744cfdad698888f4bfc235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
