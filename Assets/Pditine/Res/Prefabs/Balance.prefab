@@ -404,7 +404,7 @@ MonoBehaviour:
   board: {fileID: 7732563608933238721}
   balanceCoeff: 30
   balanceThreshold: 20
-  airResistance: 40
+  airResistance: 30
   forceLimit: 150
 --- !u!114 &1255277807269315957
 MonoBehaviour:

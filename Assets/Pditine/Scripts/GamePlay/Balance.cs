@@ -156,13 +156,13 @@ namespace Pditine.Scripts.GamePlay
             if (Mathf.Abs(_force) < balanceThreshold)
             {
                 _speed = 0;
-                acceleration = 0;
+                acceleration = -Mathf.Sign(_angle) * 1000;
             }
             else
             {
                 acceleration = 10 * _force;
             }
-            acceleration += -_angle * Mathf.Abs(_angle) * balanceCoeff * 0.1f - Mathf.Sign(_angle) * 10;
+            acceleration += -_angle * Mathf.Abs(_angle) * balanceCoeff * 0.1f;
             _speed += acceleration * Time.deltaTime;
             _speed *= Mathf.Clamp(1 - airResistance * Time.deltaTime, 0, 1);
         }
@@ -173,7 +173,7 @@ namespace Pditine.Scripts.GamePlay
         private void UpdateAngle()
         {
             float delta = _speed * Time.deltaTime;
-            delta = Mathf.Clamp(delta, -0.05f,0.05f);
+            delta = Mathf.Clamp(delta, -0.3f,0.3f);
             _angle += delta;
             _angle = Mathf.Clamp(_angle, -90, 90);
         }

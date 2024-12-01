@@ -78,6 +78,7 @@ namespace Pditine.Scripts.GamePlay
             
             foreach (var theObject in objectsToRemove)
             {
+                if(!theObject) continue;
                 IHasGravity hasGravity = theObject.GetComponent<IHasGravity>();
                 if (hasGravity != null)
                 {
