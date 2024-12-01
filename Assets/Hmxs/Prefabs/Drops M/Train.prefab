@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d619e28d5ff64119a3ed2a5f4ac7e015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropName: Train
 --- !u!60 &6734866024642257272
 PolygonCollider2D:
   m_ObjectHideFlags: 0
