@@ -21,6 +21,7 @@ namespace Pditine.Scripts.GamePlay
         [SerializeField]private Balance balance;
         [SerializeField]private Collider2D theCollider2D;
         private readonly HashSet<Collider2D> _objectBuffers = new();
+        public HashSet<Collider2D> ObjectBuffers => _objectBuffers;
         private readonly ContactFilter2D _contactFilter2D = new();
         private void Update()
         {

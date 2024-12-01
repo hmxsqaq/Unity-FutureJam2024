@@ -27,9 +27,9 @@ namespace Pditine.Scripts.UI
         {
             Vector2 mouseOffset = (Vector2)Input.mousePosition - new Vector2(Screen.width / 2.0f, Screen.height / 2.0f);
             mouseOffset /= new Vector2(Screen.width, Screen.height);
-            top.localPosition = new Vector3(mouseOffset.x * topOffset, mouseOffset.y * topOffset, 0);
-            middle.localPosition = new Vector3(mouseOffset.x * middleOffset, mouseOffset.y * middleOffset, 0);
-            bottom.localPosition = new Vector3(mouseOffset.x * bottomOffset, mouseOffset.y * bottomOffset, 0);
+            top.localPosition = new Vector3(mouseOffset.x * topOffset, mouseOffset.y * topOffset * 0.5f, 0);
+            middle.localPosition = new Vector3(mouseOffset.x * middleOffset, mouseOffset.y * middleOffset * 0.5f, 0);
+            bottom.localPosition = new Vector3(mouseOffset.x * bottomOffset, mouseOffset.y * bottomOffset * 0.5f, 0);
         }
     }
 }

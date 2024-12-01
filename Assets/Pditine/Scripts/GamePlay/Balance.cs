@@ -158,7 +158,7 @@ namespace Pditine.Scripts.GamePlay
             {
                 acceleration = 10 * _force;
             }
-            acceleration += -_angle * Mathf.Abs(_angle) * balanceCoeff * 0.1f;
+            acceleration += -_angle * Mathf.Abs(_angle) * balanceCoeff * 0.1f - Mathf.Sign(_angle) * 10;
             _speed += acceleration * Time.deltaTime;
             _speed *= Mathf.Clamp(1 - airResistance * Time.deltaTime, 0, 1);
         }
