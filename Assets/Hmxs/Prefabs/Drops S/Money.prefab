@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 3701470888575774780}
   - component: {fileID: 4543189784265324707}
   - component: {fileID: 3439417091187154729}
-  - component: {fileID: 2542588453660808305}
-  - component: {fileID: -6890160991040722986}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -410,29 +408,3 @@ PolygonCollider2D:
       - {x: -1.3399999, y: 1.375}
       - {x: -1.37, y: 1.365}
   m_UseDelaunayMesh: 0
---- !u!114 &2542588453660808305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4187295021329038482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b8af06dbaff3a4f926e27b0dee63db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: 0
---- !u!114 &-6890160991040722986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4187295021329038482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b8af06dbaff3a4f926e27b0dee63db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: 10.09218
