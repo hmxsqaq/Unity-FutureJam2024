@@ -23,10 +23,13 @@ namespace Pditine.Scripts.GamePlay
         [SerializeField] private Timer timer;
         [SerializeField] private float maxSpawnInterval;
         [SerializeField] private float minSpawnInterval;
+        [SerializeField] private float maxSpecialSpawnInterval;
+        [SerializeField] private float minSpecialSpawnInterval;
         [SerializeField] private Transform objectParent;
         private void Start()
         {
             StartCoroutine(DoSpawn());
+            StartCoroutine(DoSpecialSpawn());
             DebugSystem.AddCommand("ObjectSpawner/RandomSpawn", () =>
             {
                 Spawn();
@@ -42,50 +45,66 @@ namespace Pditine.Scripts.GamePlay
                 Clear();
             });
         }
+        
+        public void SpawnSpecial()
+        {
+            int index = Random.Range(0, objectData.SpecialObjects.Count);
+            int id = objectData.SpecialObjects[index].id;
+            Spawn(id);
+        }
 
         public void Spawn()
         {
             int id = 0;
+            int index = 0;
             float random = Random.Range(0, 1);
             if (timer.Time < 60)
             {
                 if (random < 0.7f)
                 {
-                    id = Random.Range(0, objectData.SmallObjects.Count);
+                    index = Random.Range(0, objectData.SmallObjects.Count);
+                    id = objectData.SmallObjects[index].id;
                 }
                 else
                 {
-                    id = Random.Range(0, objectData.MediumObjects.Count);
+                    index = Random.Range(0, objectData.MediumObjects.Count);
+                    id = objectData.MediumObjects[index].id;
                 }
             }
             else if (timer.Time < 120)
             {
                 if (random < 0.5f)
                 {
-                    id = Random.Range(0, objectData.SmallObjects.Count);
+                    index = Random.Range(0, objectData.SmallObjects.Count);
+                    id = objectData.SmallObjects[index].id;
                 }
                 else if (random < 0.8f)
                 {
-                    id = Random.Range(0, objectData.MediumObjects.Count);
+                    index = Random.Range(0, objectData.MediumObjects.Count);
+                    id = objectData.MediumObjects[index].id;
                 }
                 else
                 {
-                    id = Random.Range(0, objectData.BigObjects.Count);
+                    index = Random.Range(0, objectData.BigObjects.Count);
+                    id = objectData.BigObjects[index].id;
                 }
             }
             else
             {
                 if (random < 0.3f)
                 {
-                    id = Random.Range(0, objectData.SmallObjects.Count);
+                    index = Random.Range(0, objectData.SmallObjects.Count);
+                    id = objectData.SmallObjects[index].id;
                 }
                 else if (random < 0.6f)
                 {
-                    id = Random.Range(0, objectData.MediumObjects.Count);
+                    index = Random.Range(0, objectData.MediumObjects.Count);
+                    id = objectData.MediumObjects[index].id;
                 }
                 else
                 {
-                    id = Random.Range(0, objectData.BigObjects.Count);
+                    index = Random.Range(0, objectData.BigObjects.Count);
+                    id = objectData.BigObjects[index].id;
                 }
             }
             Spawn(id);
@@ -126,6 +145,16 @@ namespace Pditine.Scripts.GamePlay
                 if(timer.isOn)
                     Spawn();
                 yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
+            }
+        }
+        
+        private IEnumerator DoSpecialSpawn()
+        {
+            while (true)
+            {
+                if(timer.isOn)
+                    SpawnSpecial();
+                yield return new WaitForSeconds(Random.Range(minSpecialSpawnInterval, maxSpecialSpawnInterval));
             }
         }
     }

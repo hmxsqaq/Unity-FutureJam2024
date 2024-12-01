@@ -23,9 +23,11 @@ namespace Pditine.Scripts.Data
         [SerializeField]private List<ObjectInfo> smallObjects = new();
         [SerializeField]private List<ObjectInfo> mediumObjects = new();
         [SerializeField]private List<ObjectInfo> bigObjects = new();
+        [SerializeField]private List<ObjectInfo> specialObjects = new();
         public List<ObjectInfo> SmallObjects => smallObjects;
         public List<ObjectInfo> MediumObjects => mediumObjects;
         public List<ObjectInfo> BigObjects => bigObjects;
+        public List<ObjectInfo> SpecialObjects => specialObjects;
         public List<ObjectInfo> AllObjects
         {
             get
@@ -34,6 +36,7 @@ namespace Pditine.Scripts.Data
                 allObjects.AddRange(smallObjects);
                 allObjects.AddRange(mediumObjects);
                 allObjects.AddRange(bigObjects);
+                allObjects.AddRange(specialObjects);
                 return allObjects;
             }
         }
@@ -56,53 +59,69 @@ namespace Pditine.Scripts.Data
             ObjectSpawner.Instance.Spawn(id);
         }
         
-        // [Button]
-        // public void AddSmallObject(string path)
-        // {
-        //     int index = 0;
-        //     int id = 0;
-        //     var objectPaths = Directory.GetFiles(path, "*.prefab");
-        //     foreach (var objectPath in objectPaths)
-        //     {
-        //         var theObject = AssetDatabase.LoadAssetAtPath<GameObject>(objectPath);
-        //         smallObjects.Add(theObject);
-        //         smallObjects[index].id = id;
-        //         index++;
-        //         id++;
-        //     }
-        // }
-        //
-        // [Button]
-        // public void AddMediumObject(string path)
-        // {
-        //     int index = 0;
-        //     int id = 11;
-        //     var objectPaths = Directory.GetFiles(path, "*.prefab");
-        //     foreach (var objectPath in objectPaths)
-        //     {
-        //         var theObject = AssetDatabase.LoadAssetAtPath<GameObject>(objectPath);
-        //         mediumObjects.Add(theObject);
-        //         mediumObjects[index].id = id;
-        //         id++;
-        //         index++;
-        //     }
-        // }
-        //
-        // [Button]
-        // public void AddBigObject(string path)
-        // {
-        //     int index = 0;
-        //     int id = 20;
-        //     var objectPaths = Directory.GetFiles(path, "*.prefab");
-        //     foreach (var objectPath in objectPaths)
-        //     {
-        //         var theObject = AssetDatabase.LoadAssetAtPath<GameObject>(objectPath);
-        //         bigObjects.Add(theObject);
-        //         bigObjects[index].id = id;
-        //         id++;
-        //         index++;
-        //     }
-        // }
+        [Button]
+        public void AddSmallObject(string path)
+        {
+            int index = 0;
+            int id = 0;
+            var objectPaths = Directory.GetFiles(path, "*.prefab");
+            foreach (var objectPath in objectPaths)
+            {
+                var theObject = AssetDatabase.LoadAssetAtPath<GameObject>(objectPath);
+                smallObjects.Add(theObject);
+                smallObjects[index].id = id;
+                index++;
+                id++;
+            }
+        }
+        
+        [Button]
+        public void AddMediumObject(string path)
+        {
+            int index = 0;
+            int id = 11;
+            var objectPaths = Directory.GetFiles(path, "*.prefab");
+            foreach (var objectPath in objectPaths)
+            {
+                var theObject = AssetDatabase.LoadAssetAtPath<GameObject>(objectPath);
+                mediumObjects.Add(theObject);
+                mediumObjects[index].id = id;
+                id++;
+                index++;
+            }
+        }
+        
+        [Button]
+        public void AddBigObject(string path)
+        {
+            int index = 0;
+            int id = 20;
+            var objectPaths = Directory.GetFiles(path, "*.prefab");
+            foreach (var objectPath in objectPaths)
+            {
+                var theObject = AssetDatabase.LoadAssetAtPath<GameObject>(objectPath);
+                bigObjects.Add(theObject);
+                bigObjects[index].id = id;
+                id++;
+                index++;
+            }
+        }
+        
+        [Button]
+        public void AddSpecialObject(string path)
+        {
+            int index = 0;
+            int id = 30;
+            var objectPaths = Directory.GetFiles(path, "*.prefab");
+            foreach (var objectPath in objectPaths)
+            {
+                var theObject = AssetDatabase.LoadAssetAtPath<GameObject>(objectPath);
+                specialObjects.Add(theObject);
+                specialObjects[index].id = id;
+                id++;
+                index++;
+            }
+        }
     }
 
     [Serializable]
