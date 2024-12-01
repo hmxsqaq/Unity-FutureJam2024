@@ -44,19 +44,19 @@ public class UINodeHierarchy
 
     private static void DrawUITag(GameObject go, Rect selectionRect)
     {
-        var uiNode = go.GetComponentInParent<UINode>();
+        var uiNode = go.GetComponentInParent<UINode>(true);
         if (uiNode)
         {
             GUIStyle style = new GUIStyle();
             style.normal.textColor = uiNode.TagColor;
             style.fontSize = 10;
             Rect rect = new Rect(selectionRect);
-            if (uiNode.NodeName == null)
-            {
-                uiNode.NodeName = "";
-            }
-            rect.x += rect.width - 15 - uiNode.NodeName.Length * 5;
-            GUI.Label(rect, uiNode.NodeName,style);
+            // if (uiNode.name == null)
+            // {
+            //     uiNode.name = "";
+            // }
+            rect.x += rect.width - 15 - uiNode.name.Length * 5;
+            GUI.Label(rect, uiNode.name,style);
         }
     }
 }

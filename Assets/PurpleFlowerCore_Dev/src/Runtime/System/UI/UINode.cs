@@ -7,19 +7,27 @@ namespace PurpleFlowerCore
     {
 #if UNITY_EDITOR
         [HideInInspector] public Color TagColor = Color.white;
-        [HideInInspector] public String NodeName = "UINode";
 #endif
+        [HideInInspector] public String NodeName = "";
+
+        public virtual bool IsShow => gameObject.activeSelf;
         private void Awake()
         {
             InitEvent();
+            Register();
         }
 
         /// <summary>
-        /// 禁止手动复写
+        /// Do not call or override this method manually
         /// </summary>
         protected virtual void InitEvent()
         {
             
+        }
+
+        protected virtual void Register()
+        {
+            UISystem.RegisterUI(string.IsNullOrEmpty(NodeName)?name: NodeName,this);
         }
 
         public virtual void Show()
@@ -30,6 +38,18 @@ namespace PurpleFlowerCore
         public virtual void Hide()
         {
             gameObject.SetActive(false);
+        }
+        
+        public virtual void Switch(bool isShow)
+        {
+            if (isShow)
+            {
+                Show();
+            }
+            else
+            {
+                Hide();
+            }
         }
     }
 }
