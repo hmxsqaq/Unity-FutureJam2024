@@ -68,6 +68,7 @@ namespace Pditine.Scripts.GamePlay
                 }
                 foreach(var obj in objectTouchingProxy.ObjectBuffers)
                 {
+                    if (obj == null) continue;
                     if (obj.gameObject.CompareTag("Object"))
                     {
                         obj.transform.position += new Vector3(offset.x, 0, 0);
