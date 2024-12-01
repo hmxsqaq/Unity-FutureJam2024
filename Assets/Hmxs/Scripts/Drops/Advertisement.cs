@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Hmxs.Scripts.GamePlay;
+using Hmxs.Toolkit;
+using UnityEngine;
 
 namespace Hmxs.Scripts.Drops
 {
@@ -8,7 +10,8 @@ namespace Hmxs.Scripts.Drops
 
         protected override void Trigger()
         {
-            // todo: 回血
+            if (PlayerData.Blood + reward <= PlayerData.MaxBlood) PlayerData.Blood += reward;
+            Events.Trigger("BloodChange", PlayerData.Blood);
             DestroySelf();
         }
     }

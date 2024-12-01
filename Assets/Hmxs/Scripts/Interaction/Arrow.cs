@@ -1,4 +1,5 @@
-﻿using Hmxs.Toolkit;
+﻿using System;
+using Hmxs.Toolkit;
 using UnityEngine;
 
 namespace Hmxs.Scripts
@@ -10,15 +11,17 @@ namespace Hmxs.Scripts
 
         private RectTransform _arrow;
 
+        private void Start() => Clear();
+
         public void Generate(Vector2 position)
         {
-            if (_arrow != null) Destroy(_arrow.gameObject);
             _arrow = Instantiate(arrowPrefab, position, Quaternion.identity, parent).GetComponent<RectTransform>();
             _arrow.gameObject.SetActive(false); // prevent flickering
         }
 
         public void Set(Vector2 worldPoint, Vector2 startPoint, Vector2 endPoint)
         {
+            if (_arrow == null) return;
             if (!_arrow.gameObject.activeSelf) _arrow.gameObject.SetActive(true); // prevent flickering
             var direction = endPoint - startPoint;
             var distance = direction.magnitude;
