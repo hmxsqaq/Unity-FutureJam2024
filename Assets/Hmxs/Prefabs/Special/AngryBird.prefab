@@ -258,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggeredSprite: {fileID: -2018514615, guid: 6e6ea3462b6b7a444978f2880c404474, type: 3}
   destroyVfx: {fileID: 4428782265447988027, guid: 7dd2ee24447e7f7409c7ade63701b891, type: 3}
+  hitSound: {fileID: 8300000, guid: 1d9cc52fb28579546b83d4782112c061, type: 3}
 --- !u!60 &6848871364593325529
 PolygonCollider2D:
   m_ObjectHideFlags: 0
