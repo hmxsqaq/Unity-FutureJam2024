@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b54ec976d44b2caf9285104246f2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropName: BombCollision
   explosionVfx: {fileID: 5843353816964893906, guid: fb40bffdb041d7946bf316d122182f4f, type: 3}
   explosionSound: {fileID: 8300000, guid: 29e536a18d972204aa6de26141281ccc, type: 3}
   triggerTime: 2

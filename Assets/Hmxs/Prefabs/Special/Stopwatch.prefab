@@ -189,9 +189,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afcb68743cda4453834384ebe76038c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropName: Stopwatch
   effect2D: {fileID: 3742237250676193005}
   timeStopDuration: 3
-  timeScale: 0.1
+  timeScale: 0.01
+  timeStopSound: {fileID: 8300000, guid: bff7153f50e46a9469185334537f860f, type: 3}
+  normalVolume: {fileID: 11400000, guid: feccce4aa8631b84bbb706c17f0291c7, type: 2}
+  timeStopVolume: {fileID: 11400000, guid: 2e3fe8d746b7e0f4983be1c732fb63ef, type: 2}
 --- !u!114 &3742237250676193005
 MonoBehaviour:
   m_ObjectHideFlags: 0

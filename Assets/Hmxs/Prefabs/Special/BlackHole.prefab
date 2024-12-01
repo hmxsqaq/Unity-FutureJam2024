@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edfefd2b77a4ef2b8edc23bcdac756e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropName: BlackHole
   maxContainCount: 3
   force: 5
 --- !u!95 &6443657359420161926
