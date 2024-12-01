@@ -113,7 +113,7 @@ namespace Pditine.Scripts.GamePlay
             {
                 objectGravity = obj.AddComponent<ObjectGravity>();
             }
-            objectGravity.gravity = objectInfo.gravity <=0? rigi.mass * 5: objectInfo.gravity;
+            objectGravity.gravity = objectInfo.gravity <=0 ? rigi.mass * 5: objectInfo.gravity;
             obj.transform.position = new Vector3(Random.Range(LeftPoint.position.x, RightPoint.position.x), obj.transform.position.y,0);
             obj.tag = "Object";
             obj.layer = LayerMask.NameToLayer("Object");
