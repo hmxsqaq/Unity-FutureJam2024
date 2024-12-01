@@ -281,6 +281,8 @@ MonoBehaviour:
   timer: {fileID: 233170530}
   maxSpawnInterval: 3
   minSpawnInterval: 8
+  maxSpecialSpawnInterval: 7
+  minSpecialSpawnInterval: 15
   objectParent: {fileID: 1441711090}
 --- !u!1 &233170528
 GameObject:
