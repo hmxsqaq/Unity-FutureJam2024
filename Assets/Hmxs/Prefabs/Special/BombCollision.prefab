@@ -226,7 +226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionVfx: {fileID: 5843353816964893906, guid: fb40bffdb041d7946bf316d122182f4f, type: 3}
+  explosionSound: {fileID: 8300000, guid: 29e536a18d972204aa6de26141281ccc, type: 3}
   triggerTime: 2
+  triggerSound: {fileID: 8300000, guid: 78cba19ec5f16f9468d16dfcb6045405, type: 3}
 --- !u!95 &1931833355914856546
 Animator:
   serializedVersion: 5
