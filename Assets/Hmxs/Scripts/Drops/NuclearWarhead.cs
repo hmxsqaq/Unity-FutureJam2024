@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Hmxs.Toolkit;
+using Pditine.Scripts.GamePlay;
 using UnityEngine;
 
 namespace Hmxs.Scripts.Drops
@@ -19,9 +20,11 @@ namespace Hmxs.Scripts.Drops
         private void DestroyEverything()
         {
             // todo: play nuclear sound
-            var drops = dropsParent.GetComponentsInChildren<Drop>();
-            foreach (var drop in drops)
-                if (drop != this) drop.DestroySelf();
+            // var drops = dropsParent.GetComponentsInChildren<Drop>();
+            //
+            // foreach (var drop in drops)
+            //     if (drop != this) drop.DestroySelf();
+            ObjectSpawner.Instance.Clear();
             DestroySelf();
         }
     }

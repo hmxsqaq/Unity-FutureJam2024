@@ -34,8 +34,8 @@ MonoBehaviour:
     mass: 3.1113334
     prefab: {fileID: 4622475417827519842, guid: f0df390a0048e374281f3d73731b38f3, type: 3}
   - id: 5
-    gravity: 50
-    mass: 50
+    gravity: 1
+    mass: 1
     prefab: {fileID: 8213667266185011774, guid: 3845d6f6d3b59b6489743496d406bc95, type: 3}
   - id: 6
     gravity: 0
