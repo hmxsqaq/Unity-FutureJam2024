@@ -8,6 +8,7 @@ namespace Hmxs.Scripts.Drops
     {
         [SerializeField] private float timeStopDuration;
         [SerializeField] private float timeScale;
+        [SerializeField] private AudioClip timeStopSound;
 
         protected override void Trigger()
         {

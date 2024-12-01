@@ -1,4 +1,5 @@
 ﻿using System;
+using PurpleFlowerCore;
 using UnityEngine;
 
 namespace Hmxs.Scripts.Drops
@@ -8,6 +9,7 @@ namespace Hmxs.Scripts.Drops
     {
         [SerializeField] private Sprite triggeredSprite;
         [SerializeField] private GameObject destroyVfx;
+        [SerializeField] private AudioClip hitSound;
 
         private bool _isTriggered;
 
@@ -15,6 +17,7 @@ namespace Hmxs.Scripts.Drops
         {
             if (!_isTriggered && other.gameObject.TryGetComponent(out Drop drop))
             {
+                AudioSystem.PlayEffect(hitSound, null);
                 drop.DestroySelf();
                 _isTriggered = true;
                 GetComponent<SpriteRenderer>().sprite = triggeredSprite;

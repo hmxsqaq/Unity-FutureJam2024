@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using PurpleFlowerCore;
 using UnityEngine;
 
 namespace Hmxs.Scripts.Drops
@@ -7,6 +8,7 @@ namespace Hmxs.Scripts.Drops
     public abstract class Bomb : Drop
     {
         [SerializeField] private GameObject explosionVfx;
+        [SerializeField] private AudioClip explosionSound;
 
         private readonly List<Drop> _dropsInScope = new();
 
@@ -36,7 +38,7 @@ namespace Hmxs.Scripts.Drops
 
         protected void Explode()
         {
-            // todo: play explosion sound
+            AudioSystem.PlayEffect(explosionSound, null);
             var toDestroy = _dropsInScope.Where(t => t != null).ToList();
             foreach (var drop in toDestroy)
             {
