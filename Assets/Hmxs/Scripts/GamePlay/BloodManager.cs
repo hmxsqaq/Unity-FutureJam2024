@@ -1,12 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Hmxs.Toolkit;
+using PurpleFlowerCore;
 using UnityEngine;
 
 namespace Hmxs.Scripts.GamePlay
 {
-    public class BloodManager : MonoBehaviour
+    public class BloodManager : SingletonMono<BloodManager>
     {
         [SerializeField] private List<GameObject> bloods;
+
+        private void Start()
+        {
+            DebugSystem.AddCommand("BloodManager/SetBlood", (int blood) => OnBloodChange(blood));
+        }
+
+        public event System.Action<int> OnBloodChangeEvent;
 
         private void OnEnable() => Events.AddListener<int>("BloodChange", OnBloodChange);
 
@@ -20,6 +29,7 @@ namespace Hmxs.Scripts.GamePlay
             {
                 bloods[i].SetActive(i < blood);
             }
+            OnBloodChangeEvent?.Invoke(blood);
         }
     }
 }

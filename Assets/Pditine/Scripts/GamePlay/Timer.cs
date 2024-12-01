@@ -5,13 +5,14 @@
 // // License: MIT
 // // -------------------------------------------------
 
+using Hmxs.Toolkit;
 using PurpleFlowerCore;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Pditine.Scripts.GamePlay
 {
-    public class Timer : MonoBehaviour
+    public class Timer : SingletonMono<Timer>
     {
         [SerializeField] private Text TimeText;
         private float _time;

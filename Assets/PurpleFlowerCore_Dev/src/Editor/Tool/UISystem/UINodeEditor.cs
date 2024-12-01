@@ -206,7 +206,8 @@ namespace PurpleFlowerCore.Editor.Tool.UISystem
             {
                 if(uiBehaviour.GetComponentInParent<UINode>() != Target) continue;
                 if(_ignoreDefault && _nameFilter.Contains(uiBehaviour.name))continue;
-                uiBehaviours.Add(uiBehaviour.name.Replace(" ","") + uiBehaviour.GetType().Name,uiBehaviour);
+                if(!uiBehaviours.ContainsKey(uiBehaviour.name.Replace(" ","") + uiBehaviour.GetType().Name))
+                    uiBehaviours.Add(uiBehaviour.name.Replace(" ","") + uiBehaviour.GetType().Name,uiBehaviour);
             }
             return uiBehaviours;
         }
