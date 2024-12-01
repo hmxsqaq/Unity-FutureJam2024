@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b12cbb9a921464290515cfd897f643a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropName: 
+  dropName: BombTime
   explosionVfx: {fileID: 5843353816964893906, guid: fb40bffdb041d7946bf316d122182f4f, type: 3}
   explosionSound: {fileID: 8300000, guid: 29e536a18d972204aa6de26141281ccc, type: 3}
   explosionTime: 5

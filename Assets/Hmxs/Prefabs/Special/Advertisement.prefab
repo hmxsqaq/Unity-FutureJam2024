@@ -382,6 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5e12a13af74cfbbbbd8539baea6c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropName: Advertisement
   effect2D: {fileID: 7275887755983038177}
   reward: 1
 --- !u!95 &2995071811959811480

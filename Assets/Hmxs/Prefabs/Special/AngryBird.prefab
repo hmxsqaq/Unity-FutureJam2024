@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e495bf1bb8314c1e8d7237a30cf6c127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropName: AngryBird
   triggeredSprite: {fileID: -2018514615, guid: 6e6ea3462b6b7a444978f2880c404474, type: 3}
   destroyVfx: {fileID: 4428782265447988027, guid: 7dd2ee24447e7f7409c7ade63701b891, type: 3}
   hitSound: {fileID: 8300000, guid: 1d9cc52fb28579546b83d4782112c061, type: 3}
