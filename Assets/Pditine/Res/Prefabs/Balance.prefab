@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5227597522071927784}
   - component: {fileID: 8917124663184125084}
   - component: {fileID: 7498240719228279171}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Board
   m_TagString: Balance
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1486364125, guid: e46234e3aea52924c8f5727fd1ab3e98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -380,7 +380,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6719395497466938543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -404,7 +404,7 @@ MonoBehaviour:
   board: {fileID: 7732563608933238721}
   balanceCoeff: 30
   balanceThreshold: 20
-  airResistance: 5
+  airResistance: 40
   forceLimit: 150
 --- !u!114 &1255277807269315957
 MonoBehaviour:
@@ -421,6 +421,8 @@ MonoBehaviour:
   mouseForce: 10
   balance: {fileID: 4053747089039205632}
   ctrlPoint: {fileID: 1925081899935826401}
+  objectTouchingProxy: {fileID: 7498240719228279171}
+  moveLimit: 3.6
 --- !u!50 &4796178990857231799
 Rigidbody2D:
   serializedVersion: 4

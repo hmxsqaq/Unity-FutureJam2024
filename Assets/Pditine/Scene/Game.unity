@@ -1518,17 +1518,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 227845773}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1462008477 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7498240719228279171, guid: f06d6531079841249925c695e1d397c8, type: 3}
-  m_PrefabInstance: {fileID: 6990712646800883017}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41868b990e6d4580a998e9fed3373e04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1598601816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,26 +1721,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 752444737}
     m_Modifications:
-    - target: {fileID: 1255277807269315957, guid: f06d6531079841249925c695e1d397c8, type: 3}
-      propertyPath: moveLimit
-      value: 3.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1255277807269315957, guid: f06d6531079841249925c695e1d397c8, type: 3}
-      propertyPath: objectTouchingProxy
-      value: 
-      objectReference: {fileID: 1462008477}
-    - target: {fileID: 4053747089039205632, guid: f06d6531079841249925c695e1d397c8, type: 3}
-      propertyPath: airResistance
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 4182340403064135319, guid: f06d6531079841249925c695e1d397c8, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5757205728314879285, guid: f06d6531079841249925c695e1d397c8, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 5900022075547794354, guid: f06d6531079841249925c695e1d397c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
