@@ -14,6 +14,10 @@ GameObject:
   - component: {fileID: 6231272308626420110}
   - component: {fileID: 4250754252319594771}
   - component: {fileID: 5189001817610781615}
+  - component: {fileID: -7389610112576442861}
+  - component: {fileID: 7297750563225718057}
+  - component: {fileID: -5365980175749719145}
+  - component: {fileID: -1478814066044029016}
   m_Layer: 0
   m_Name: Book
   m_TagString: Untagged
@@ -99,7 +103,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
+  m_UseAutoMass: 0
   m_Mass: 1.400136
   m_LinearDrag: 0
   m_AngularDrag: 0.05
@@ -325,3 +329,55 @@ PolygonCollider2D:
       - {x: 0.675, y: -1.56}
       - {x: 0.805, y: -1.53}
   m_UseDelaunayMesh: 0
+--- !u!114 &-7389610112576442861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466013347356967898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b8af06dbaff3a4f926e27b0dee63db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 0
+--- !u!114 &7297750563225718057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466013347356967898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b8af06dbaff3a4f926e27b0dee63db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 0
+--- !u!114 &-5365980175749719145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466013347356967898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b8af06dbaff3a4f926e27b0dee63db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 0
+--- !u!114 &-1478814066044029016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466013347356967898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b8af06dbaff3a4f926e27b0dee63db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 0

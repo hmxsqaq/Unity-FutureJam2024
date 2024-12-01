@@ -35,6 +35,7 @@ namespace Pditine.Scripts.GamePlay
             List<Collider2D> visitedObjects = new List<Collider2D>();
             List<Collider2D> suspiciousObjects = new List<Collider2D>();
             theCollider2D.OverlapCollider(_contactFilter2D, suspiciousObjects);
+            suspiciousObjects = suspiciousObjects.Where(collider2D => collider2D.transform.position.y > theCollider2D.transform.position.y).ToList();
             while (suspiciousObjects.Count > 0)
             {
                 Collider2D collider = suspiciousObjects[0];
@@ -46,7 +47,9 @@ namespace Pditine.Scripts.GamePlay
                 collider.OverlapCollider(_contactFilter2D, subObjects);
                 foreach (var subObject in subObjects)
                 {
-                    if (!visitedObjects.Contains(subObject))
+                    if (!visitedObjects.Contains(subObject) 
+                        && !suspiciousObjects.Contains(subObject) 
+                        && subObject.transform.position.y > collider.transform.position.y)
                     {
                         suspiciousObjects.Add(subObject);
                     }

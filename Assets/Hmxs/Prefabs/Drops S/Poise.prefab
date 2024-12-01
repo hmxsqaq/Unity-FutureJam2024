@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5174834930332637041}
   - component: {fileID: 6208334796433571711}
   - component: {fileID: 5765001879905165961}
+  - component: {fileID: 7743575392540701179}
   m_Layer: 0
   m_Name: Poise
   m_TagString: Untagged
@@ -99,7 +100,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
+  m_UseAutoMass: 0
   m_Mass: 0.9492391
   m_LinearDrag: 0
   m_AngularDrag: 0.05
@@ -330,3 +331,16 @@ PolygonCollider2D:
       - {x: 0.26999998, y: -2.215}
       - {x: 0.29, y: -2.175}
   m_UseDelaunayMesh: 0
+--- !u!114 &7743575392540701179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692545055499129085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b8af06dbaff3a4f926e27b0dee63db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 0

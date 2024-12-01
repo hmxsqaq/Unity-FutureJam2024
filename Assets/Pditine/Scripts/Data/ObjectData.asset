@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26e457a6e7d4a2baa05eae6b4848099, type: 3}
+  m_Name: ObjectData
+  m_EditorClassIdentifier: 
+  smallObjects:
+  - id: 0
+    gravity: 0
+    mass: 2.558672
+    prefab: {fileID: 2620469445089477824, guid: c6ac1b1301d10f74f8af756998719238, type: 3}
+  - id: 1
+    gravity: 0
+    mass: 2.742168
+    prefab: {fileID: 8040090164792790166, guid: 4cc193b0675637143b897c201bf21e75, type: 3}
+  - id: 2
+    gravity: 0
+    mass: 1.400136
+    prefab: {fileID: 1466013347356967898, guid: 877dd77862848334395d40b7c3a73a8b, type: 3}
+  - id: 3
+    gravity: 0
+    mass: 1.06584
+    prefab: {fileID: 4621434921682772075, guid: cfe50006b0faf3c42b88899453bad77c, type: 3}
+  - id: 4
+    gravity: 0
+    mass: 3.1113334
+    prefab: {fileID: 4622475417827519842, guid: f0df390a0048e374281f3d73731b38f3, type: 3}
+  - id: 5
+    gravity: 0
+    mass: 0.88057595
+    prefab: {fileID: 8213667266185011774, guid: 3845d6f6d3b59b6489743496d406bc95, type: 3}
+  - id: 6
+    gravity: 0
+    mass: 2.018436
+    prefab: {fileID: 4187295021329038482, guid: 87281522af4ae224393371c022b7cf1b, type: 3}
+  - id: 7
+    gravity: 0
+    mass: 0.9492391
+    prefab: {fileID: 4692545055499129085, guid: 400c201b54e975f438d600b725b5f57c, type: 3}
+  - id: 8
+    gravity: 0
+    mass: 1.908208
+    prefab: {fileID: 1929991235097525161, guid: ed02f04f249e643418c28ad69d36a1d9, type: 3}
+  - id: 9
+    gravity: 0
+    mass: 0.48249996
+    prefab: {fileID: 4997921362049949406, guid: 03bba020ea09e2a4d9198ab4149a5cd0, type: 3}
+  - id: 10
+    gravity: 0
+    mass: 3.30471
+    prefab: {fileID: 1832046859091043564, guid: c3bacbd7cc872954f9aae06150b82bf5, type: 3}
+  mediumObjects:
+  - id: 11
+    gravity: 0
+    mass: 6.3035994
+    prefab: {fileID: 4370508061505998206, guid: 766617249c57bd749a7640b70e2b1d14, type: 3}
+  - id: 12
+    gravity: 0
+    mass: 2.4129064
+    prefab: {fileID: 1785753189008479274, guid: 06bddcdde9193a84484e90cbdda4fe18, type: 3}
+  - id: 13
+    gravity: 0
+    mass: 1.669728
+    prefab: {fileID: 7286933457696385458, guid: 66afd7cd23664c9409d2c4a37091648e, type: 3}
+  - id: 14
+    gravity: 0
+    mass: 7.866945
+    prefab: {fileID: 5900934481344096791, guid: 90dbba87cbbc08447b5771ec228f19a6, type: 3}
+  - id: 15
+    gravity: 0
+    mass: 1.7617921
+    prefab: {fileID: 3524055543769855182, guid: 62aadea560de4cc439dba8d3c1b135e7, type: 3}
+  - id: 16
+    gravity: 0
+    mass: 3.9129996
+    prefab: {fileID: 1242923618991270182, guid: af1b280b115405e4d8d7fefd1dae71af, type: 3}
+  - id: 17
+    gravity: 0
+    mass: 8.411143
+    prefab: {fileID: 8902641363618985202, guid: 6616500d7c76e674c95029576732fa08, type: 3}
+  - id: 18
+    gravity: 0
+    mass: 7.3446584
+    prefab: {fileID: 5260933648661614569, guid: acaefc770ea30254ea8bceddcb788735, type: 3}
+  - id: 19
+    gravity: 0
+    mass: 2.391
+    prefab: {fileID: 2135827815885854041, guid: da5449f0e7079c84db5fd5afa29c7f5f, type: 3}
+  bigObjects:
+  - id: 20
+    gravity: 0
+    mass: 20.036047
+    prefab: {fileID: 7933437446906386402, guid: 96417e43c4d946d498af0da534d64cb1, type: 3}
+  - id: 21
+    gravity: 0
+    mass: 14.603762
+    prefab: {fileID: 12658006944190456, guid: 91bfaed4b6add90479a48863bbbe38f7, type: 3}
+  - id: 22
+    gravity: 0
+    mass: 1.8935788
+    prefab: {fileID: 3563481540435981848, guid: 2923c2f98b7e6da40b653c21bd50c88e, type: 3}
+  - id: 23
+    gravity: 0
+    mass: 16.544884
+    prefab: {fileID: 3654586766270169493, guid: 380def3d34fe78d4985a0831577fdd78, type: 3}
+  - id: 24
+    gravity: 0
+    mass: 6.8111997
+    prefab: {fileID: 4374385808795052535, guid: 2c773c492032f9b4bae60df6571186b8, type: 3}
+  - id: 25
+    gravity: 0
+    mass: 8.434322
+    prefab: {fileID: 1573090182211817181, guid: 569d10ddde9e4c5479faee439d83b5f4, type: 3}
+  - id: 26
+    gravity: 0
+    mass: 8.660613
+    prefab: {fileID: 6417922197622491545, guid: 912b281a98fcab747ac41143ca56c72d, type: 3}
+  - id: 27
+    gravity: 0
+    mass: 10.132973
+    prefab: {fileID: 2222560725241894547, guid: ec183a1277172734fada7712cc3a35ac, type: 3}
+  - id: 28
+    gravity: 0
+    mass: 10.103873
+    prefab: {fileID: 4546104090770382048, guid: cd7b0686345155e4b957d3ed2ec5fc98, type: 3}
+  - id: 29
+    gravity: 0
+    mass: 14.034209
+    prefab: {fileID: 6282205602879239218, guid: e63ac552120396b469cdc3c902415568, type: 3}
+  - id: 30
+    gravity: 0
+    mass: 12.89495
+    prefab: {fileID: 6278179767566514753, guid: 91c4e3ea5318dc045ba4824c3f504941, type: 3}
+  - id: 31
+    gravity: 0
+    mass: 1
+    prefab: {fileID: 3838318567963230470, guid: aece9e7be5f857741b85b5a0580f3bfa, type: 3}
+  - id: 32
+    gravity: 0
+    mass: 15.019969
+    prefab: {fileID: 3621974098934334228, guid: fc342e84064e52a489b00edae617e066, type: 3}

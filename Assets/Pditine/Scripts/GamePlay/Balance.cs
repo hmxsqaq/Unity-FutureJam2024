@@ -120,6 +120,10 @@ namespace Pditine.Scripts.GamePlay
         {
             foreach (var obj in _objects)
             {
+                if (obj == null || obj.Equals(null))
+                {
+                    continue;
+                }
                 var (isLeft, force) = obj.GetGravityInfo(this);
                 if (isLeft)
                 {
@@ -169,7 +173,7 @@ namespace Pditine.Scripts.GamePlay
         private void UpdateAngle()
         {
             float delta = _speed * Time.deltaTime;
-            delta = Mathf.Clamp(delta, -1,1);
+            delta = Mathf.Clamp(delta, -0.05f,0.05f);
             _angle += delta;
             _angle = Mathf.Clamp(_angle, -90, 90);
         }
