@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Hmxs.Scripts
 {
-    public class Arrow : SingletonMono<Arrow>
+    public class Arrow : PurpleFlowerCore.Utility.SingletonMono<Arrow>
     {
         [SerializeField] private Transform parent;
         [SerializeField] private GameObject arrowPrefab;

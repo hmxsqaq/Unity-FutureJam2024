@@ -147,3 +147,4 @@ MonoBehaviour:
     gravity: 0
     mass: 15.019969
     prefab: {fileID: 3621974098934334228, guid: fc342e84064e52a489b00edae617e066, type: 3}
+  specialObjects: []

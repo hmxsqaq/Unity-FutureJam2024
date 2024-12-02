@@ -5,8 +5,8 @@
 // // License: MIT
 // // -------------------------------------------------
 
-using Hmxs.Toolkit;
 using PurpleFlowerCore;
+using PurpleFlowerCore.Utility;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -57,7 +57,7 @@ namespace Pditine.Scripts.GamePlay
         {
             int id = 0;
             int index = 0;
-            float random = Random.Range(0, 1);
+            float random = Random.Range(0f, 1f);
             if (timer.Time < 60)
             {
                 if (random < 0.7f)

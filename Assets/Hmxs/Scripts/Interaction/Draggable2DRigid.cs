@@ -11,8 +11,8 @@ namespace Hmxs.Scripts
         [SerializeField] private AnimationCurve dragForceCurve;
         [SerializeField] private AnimationCurve dragImpulseCurve;
 
-        private Vector2 StartWorldPoint => (Vector2)transform.position + Utility.RotateVector(_offsetWorld, transform.eulerAngles.z - _startAngle);
-        private Vector2 StartCanvasPoint => Utility.GetCanvasPosition(StartWorldPoint);
+        private Vector2 StartWorldPoint => (Vector2)transform.position + Utility.Instance.RotateVector(_offsetWorld, transform.eulerAngles.z - _startAngle);
+        private Vector2 StartCanvasPoint => Utility.Instance.GetCanvasPosition(StartWorldPoint);
 
         private Vector2 _offsetWorld;
         private float _startAngle;
@@ -30,7 +30,7 @@ namespace Hmxs.Scripts
 
         private void OnMouseDown()
         {
-            var worldPoint = Utility.GetMouseWorldPosition();
+            var worldPoint = Utility.Instance.GetMouseWorldPosition();
             _offsetWorld = worldPoint - (Vector2)transform.position;
             _startAngle = transform.eulerAngles.z;
             _isDragging = true;
@@ -48,8 +48,8 @@ namespace Hmxs.Scripts
         private void FixedUpdate()
         {
             if (!_isDragging) return;
-            Arrow.Instance.Set(StartWorldPoint, StartCanvasPoint, Utility.GetMouseCanvasPosition());
-            var worldPoint = Utility.GetMouseWorldPosition();
+            Arrow.Instance.Set(StartWorldPoint, StartCanvasPoint, Utility.Instance.GetMouseCanvasPosition());
+            var worldPoint = Utility.Instance.GetMouseWorldPosition();
             _dragDistance = Vector2.Distance(StartWorldPoint, worldPoint);
             _dragDirection = (worldPoint - StartWorldPoint).normalized;
             var dragForce = dragForceCurve.Evaluate(_dragDistance);

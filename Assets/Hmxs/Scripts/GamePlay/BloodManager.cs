@@ -6,13 +6,14 @@ using UnityEngine;
 
 namespace Hmxs.Scripts.GamePlay
 {
-    public class BloodManager : SingletonMono<BloodManager>
+    public class BloodManager : PurpleFlowerCore.Utility.SingletonMono<BloodManager>
     {
         [SerializeField] private List<GameObject> bloods;
 
         private void Start()
         {
             DebugSystem.AddCommand("BloodManager/SetBlood", (int blood) => OnBloodChange(blood));
+            PlayerData.Blood = PlayerData.MaxBlood;
         }
 
         public event System.Action<int> OnBloodChangeEvent;

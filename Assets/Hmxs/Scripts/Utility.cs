@@ -1,51 +1,40 @@
 ﻿using System;
+using PurpleFlowerCore.Utility;
 using UnityEngine;
 
 namespace Hmxs.Scripts
 {
-    public static class Utility
+    public class Utility : SingletonMono<Utility>
     {
-        private static Canvas _mainCanvas;
+        [SerializeField]private Canvas _mainCanvas;
 
-        public static Canvas MainCanvas
-        {
-            get
-            {
-                if (_mainCanvas == null) _mainCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-                return _mainCanvas;
-            }
-        }
+        public Canvas MainCanvas => _mainCanvas;
+        
+        [SerializeField]private Camera _mainCamera;
 
-        public static Camera MainCamera
-        {
-            get
-            {
-                if (Camera.main == null) throw new NullReferenceException("Camera.main is null");
-                return Camera.main;
-            }
-        }
+        public Camera MainCamera => _mainCamera;
 
-        public static Vector2 GetMouseWorldPosition()
+        public Vector2 GetMouseWorldPosition()
         {
             var mousePos = Input.mousePosition;
             mousePos.z = 10;
             return MainCamera.ScreenToWorldPoint(mousePos);
         }
 
-        public static Vector2 GetMouseCanvasPosition()
+        public Vector2 GetMouseCanvasPosition()
         {
             var mousePos = Input.mousePosition;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(MainCanvas.transform as RectTransform, mousePos, MainCamera, out var result);
             return result;
         }
 
-        public static Vector2 GetCanvasPosition(Vector2 worldPosition)
+        public Vector2 GetCanvasPosition(Vector2 worldPosition)
         {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(MainCanvas.transform as RectTransform, MainCamera.WorldToScreenPoint(worldPosition), MainCamera, out var result);
             return result;
         }
 
-        public static Vector2 RotateVector(Vector2 originalVector, float angleInDegrees)
+        public Vector2 RotateVector(Vector2 originalVector, float angleInDegrees)
         {
             float angleInRadians = angleInDegrees * Mathf.Deg2Rad;
             float cosTheta = Mathf.Cos(angleInRadians);

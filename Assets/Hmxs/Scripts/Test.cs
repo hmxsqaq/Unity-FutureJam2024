@@ -9,7 +9,7 @@ namespace Hmxs.Scripts
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log(Utility.GetMouseCanvasPosition());
+                // Debug.Log(Utility.GetMouseCanvasPosition());
             }
         }
     }

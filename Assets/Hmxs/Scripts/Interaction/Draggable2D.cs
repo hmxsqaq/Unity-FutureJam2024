@@ -13,7 +13,7 @@ namespace Hmxs.Scripts
 
         private void OnMouseDown()
         {
-            _offset = (Vector2)entity.position - Utility.GetMouseWorldPosition();
+            _offset = (Vector2)entity.position - Utility.Instance.GetMouseWorldPosition();
             _isDragging = true;
         }
 
@@ -24,7 +24,7 @@ namespace Hmxs.Scripts
 
         private void Update()
         {
-            if (_isDragging) entity.position = Utility.GetMouseWorldPosition() + _offset;
+            if (_isDragging) entity.position = Utility.Instance.GetMouseWorldPosition() + _offset;
         }
     }
 }

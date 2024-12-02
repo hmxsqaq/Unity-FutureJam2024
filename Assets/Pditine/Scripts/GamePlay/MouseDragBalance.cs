@@ -17,12 +17,14 @@ namespace Pditine.Scripts.GamePlay
         [SerializeField] private Transform ctrlPoint;
         [SerializeField] private ObjectTouchingProxy objectTouchingProxy;
         [SerializeField] private float moveLimit;
+        [SerializeField] private Transform board;
         private Vector3 _endPos;
         private bool _isDragging;
         private bool _isMove;
-        private Vector2 StartCanvasPoint => Utility.GetCanvasPosition(transform.position) + _offsetCanvas;
+        private float _startAngle;
+        private Vector2 StartWorldPoint => (Vector2)board.position + Utility.Instance.RotateVector(_offsetWorld, board.eulerAngles.z - _startAngle);
+        private Vector2 StartCanvasPoint => Utility.Instance.GetCanvasPosition(StartWorldPoint);
         private Vector2 _offsetWorld;
-        private Vector2 _offsetCanvas;
         private Vector2 _mouseBuffer;
         
         private void Start()
@@ -52,15 +54,15 @@ namespace Pditine.Scripts.GamePlay
             {
                 _endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Arrow.Instance.Set(ctrlPoint.position,
-                    StartCanvasPoint, Utility.GetMouseCanvasPosition());
+                    StartCanvasPoint, Utility.Instance.GetMouseCanvasPosition());
             }
             else if (_isMove)
             {
-                var offset = Utility.GetMouseWorldPosition() - _mouseBuffer;
+                var offset = Utility.Instance.GetMouseWorldPosition() - _mouseBuffer;
                 transform.position+= new Vector3(offset.x, 0, 0);
                 if (Mathf.Abs(transform.position.x) > moveLimit)
                 {
-                    _mouseBuffer = Utility.GetMouseWorldPosition();
+                    _mouseBuffer = Utility.Instance.GetMouseWorldPosition();
                     var position = transform.position;
                     position = new Vector3(moveLimit * Mathf.Sign(position.x), position.y, position.z);
                     transform.position = position;
@@ -74,7 +76,7 @@ namespace Pditine.Scripts.GamePlay
                         obj.transform.position += new Vector3(offset.x, 0, 0);
                     }
                 }
-                _mouseBuffer = Utility.GetMouseWorldPosition();
+                _mouseBuffer = Utility.Instance.GetMouseWorldPosition();
             }
         }
 
@@ -83,13 +85,15 @@ namespace Pditine.Scripts.GamePlay
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (Physics2D.OverlapPoint(mousePos, 1 << LayerMask.NameToLayer("Board")))
             {
+                _startAngle = board.eulerAngles.z;
+                _offsetWorld = Utility.Instance.GetMouseWorldPosition() - (Vector2)transform.position;
                 _isDragging = true;
-                Arrow.Instance.Generate(Utility.GetMouseWorldPosition());
-                _offsetCanvas = Utility.GetMouseCanvasPosition() - Utility.GetCanvasPosition(transform.position);
+                Arrow.Instance.Generate(Utility.Instance.GetMouseWorldPosition());
+                // _offsetCanvas = Utility.Instance.GetMouseCanvasPosition() - Utility.Instance.GetCanvasPosition(transform.position);
                 ctrlPoint.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }else if (Physics2D.OverlapPoint(mousePos, 1 << LayerMask.NameToLayer("Trunk")))
             {
-                _mouseBuffer = Utility.GetMouseWorldPosition();
+                _mouseBuffer = Utility.Instance.GetMouseWorldPosition();
                 _isMove = true;
             }
         }
