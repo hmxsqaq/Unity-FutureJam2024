@@ -1,20 +1,17 @@
 ﻿using Hmxs.Scripts.Drops;
 using Hmxs.Toolkit;
 using Hmxs.Toolkit.Plugins.Fungus.FungusTools;
+using PurpleFlowerCore;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Hmxs.Scripts.GamePlay
 {
     [RequireComponent(typeof(Collider2D))]
     public class DeadZone : MonoBehaviour
     {
-        private void OnEnable() => Events.AddListener<int>("BloodChange", OnBloodChange);
-        private void OnDisable() => Events.RemoveListener<int>("BloodChange", OnBloodChange);
-
-        private static void OnBloodChange(int blood)
-        {
-            if (PlayerData.Blood <= 0) Events.Trigger("GameOver");
-        }
+        [SerializeField] private Image hitUI;
+        [SerializeField] private AudioClip hitSound;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -34,8 +31,11 @@ namespace Hmxs.Scripts.GamePlay
                 case "Heart": FlowchartManager.ExecuteBlock("Fall_Heart"); break;
                 case "Money": FlowchartManager.ExecuteBlock("Fall_Money"); break;
             }
+
             drop.DestroySelf();
             PlayerData.Blood--;
+            FlowchartManager.ExecuteBlock("ShowHitUI");
+            AudioSystem.PlayEffect(hitSound, null);
             Events.Trigger("BloodChange", PlayerData.Blood);
         }
     }

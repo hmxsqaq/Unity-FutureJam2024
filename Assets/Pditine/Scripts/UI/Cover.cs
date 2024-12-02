@@ -21,10 +21,15 @@ namespace Pditine.Scripts.UI
         [SerializeField] private Button QuitButton;
         [SerializeField] private Image QuitImage;
         [SerializeField] private Image BlackPanelImage;
+
+        [SerializeField] private AudioClip selectSound;
+
         protected override void InitEvent()
         {
             PlayButton.onClick.AddListener(PlayButtonClick);
+            PlayButton.onClick.AddListener(() => AudioSystem.PlayEffect(selectSound, null));
             QuitButton.onClick.AddListener(QuitButtonClick);
+            QuitButton.onClick.AddListener(() => AudioSystem.PlayEffect(selectSound, null));
         }
         
         [SerializeField] private AudioClip bgm;

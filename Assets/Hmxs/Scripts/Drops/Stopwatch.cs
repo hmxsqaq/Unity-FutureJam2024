@@ -1,5 +1,6 @@
 ﻿using HighlightPlus2D;
 using Hmxs.Toolkit;
+using PurpleFlowerCore;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -25,6 +26,7 @@ namespace Hmxs.Scripts.Drops
         {
             Rb.gravityScale = 0;
             Rb.velocity = Vector2.zero;
+            AudioSystem.PlayEffect(timeStopSound, null);
             GetComponent<SpriteRenderer>().enabled = false;
             _volume.profile = timeStopVolume;
             Time.timeScale = timeScale;

@@ -898,6 +898,7 @@ MonoBehaviour:
   QuitButton: {fileID: 1986430850}
   QuitImage: {fileID: 1986430851}
   BlackPanelImage: {fileID: 1165143347}
+  selectSound: {fileID: 8300000, guid: 5cf0e85157f3df14fb1287e0f31f821c, type: 3}
   bgm: {fileID: 8300000, guid: 2b7520d94cd290c41a75580d49c9670c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
