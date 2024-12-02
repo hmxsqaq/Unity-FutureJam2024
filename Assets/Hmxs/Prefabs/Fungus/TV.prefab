@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2072432156996770875}
   - component: {fileID: 6559581996005428352}
   - component: {fileID: 8359746653464280211}
+  - component: {fileID: 8084615890022520803}
   m_Layer: 5
   m_Name: TV
   m_TagString: Untagged
@@ -27,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 660609487130191698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7401023809880967598}
@@ -76,6 +77,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &8084615890022520803
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660609487130191698}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0092387dd4533e54db1c502ee9cbeb43, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5234156277567813208
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +134,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 211.2, y: 167.68}
+  m_SizeDelta: {x: 657, y: 523}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4823678959411509453
 CanvasRenderer:
@@ -162,7 +184,7 @@ Animator:
   m_GameObject: {fileID: 5234156277567813208}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0092387dd4533e54db1c502ee9cbeb43, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2c9f39511e4f615438e28b529bccea84, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
